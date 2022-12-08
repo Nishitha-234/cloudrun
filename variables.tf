@@ -182,13 +182,10 @@ variable "container_port"{
     }
 }
 
-variable "http_request_type"{
-    type = string
-    description = ""
-    validation {
-        condition = var.http_request_type == "http1" || var.http_request_type == "h2c"
-        error_message = ""
-            }
+variable http2 {
+  type = bool
+  default = false
+  description = "Enable use of HTTP/2 end-to-end."
 }
 
 variable "cpu_count"{
