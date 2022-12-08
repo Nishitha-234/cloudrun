@@ -24,7 +24,6 @@ resource "google_cloud_run_service" "default" {
       containers {
         image = var.service_image_url
         ports{
-          
           name    =  var.http2 ? "h2c" : "http1"
           container_port = var.port
         }

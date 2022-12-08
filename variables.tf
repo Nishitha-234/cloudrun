@@ -48,6 +48,7 @@ variable "new_revision" {
     }
 
 
+
 variable "traffic_to_old_revision"{
     type = number
     description ="for use with traffic splitting and revision tagging - percentag eof traffic to old version.should not be used in firdt deployment"
@@ -168,7 +169,7 @@ variable "timeout_seconds"{
           error_message = ""
         }
     }
-variable "container_port"{
+variable "port"{
     type = number
     description =""
     default ="8080"
