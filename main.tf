@@ -1,13 +1,13 @@
-locals {
-  apigee_service_account= lookup({
-    "QA" =["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
-    "DEV"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
-    "QA"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
-    "PROD"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"]
-  },var.apigee_environment, [])
-  str_keys=  length(var.keys) >="1" ? var.keys[0]: ""
-  default_key_path = local.str_keys == "" ? var.kms_key_path == "" ? null : var.kms_key_path : var.keyring == "" ? var.kms_key_path == "" ? null : var.kms_key_path : var.kms_key_path == "" ? "${var.keyring}/cryptokeys/${local.str_keys}" : var.kms_key_path
-}
+# locals {
+#   apigee_service_account= lookup({
+#     "QA" =["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
+#     "DEV"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
+#     "QA"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"],
+#     "PROD"= ["serviceaccount:sa-apipub-cloud-run-qa@prj-apimgnt-qa-psa-qa-8e22.iam.gseviceaccount.com"]
+#   },var.apigee_environment, [])
+#   str_keys=  length(var.keys) >="1" ? var.keys[0]: ""
+#   default_key_path = local.str_keys == "" ? var.kms_key_path == "" ? null : var.kms_key_path : var.keyring == "" ? var.kms_key_path == "" ? null : var.kms_key_path : var.kms_key_path == "" ? "${var.keyring}/cryptokeys/${local.str_keys}" : var.kms_key_path
+# }
 
 
 resource "google_cloud_run_service" "default" {
