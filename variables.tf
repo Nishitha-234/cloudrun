@@ -175,8 +175,8 @@ variable "port"{
     default ="8080"
     validation{
         condition = (
-            var.container_port >=1 &&
-            var.container_port <= 65535
+            var.port >=1 &&
+            var.port <= 65535
         )
 
         error_message =""
