@@ -1,11 +1,11 @@
 variable "gcp_project_id" {
     type = string
     description = "the id of the project where the cloud run deployed"
-    validation{
-        condition = can(regex("^[a-z0-9]+$", var.gcp_project_id))
-        error_message = "the project name must contain only lowercase letters nmebers and hypens"
+    # validation{
+    #     condition = can(regex("^[a-z0-9]+$", var.gcp_project_id))
+    #     error_message = "the project name must contain only lowercase letters nmebers and hypens"
 
-    }
+    # }
 
 }
 
